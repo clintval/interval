@@ -13,6 +13,13 @@ val interval = Interval("chr1", start = 1, end = 2, name = "MyInterval")
 interval.sameCoordinates(interval) shouldBe true
 interval.asHtsJdk.getContig shouldBe "chr1"
 ```
+#### Features
+
+- The Interval is a 1-based fully closed span upon a reference sequence
+- Each Interval magically mixes in HTSJDK's Interval while hiding the HTSJDK API
+- The HTSJDK API can be summoned by casting the Interval with `.asHtsJdk()`
+- Implicit conversions allow for seamless interoperability between either Interval class
+- Grants you a memory-friendly way of having a Scala-esque API upon HTSJDK's Interval
 
 #### If Mill is your build tool
 
