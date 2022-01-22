@@ -4,7 +4,7 @@
 [![Coverage Status](https://codecov.io/gh/clintval/interval/branch/main/graph/badge.svg)](https://codecov.io/gh/clintval/interval)
 [![Language](https://img.shields.io/badge/language-scala-c22d40.svg)](https://www.scala-lang.org/)
 
-A better genomic interval compatible with [HTSJDK](https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/samtools/util/Interval.html).
+A better genomic interval that is compatible with [HTSJDK](https://samtools.github.io/htsjdk/javadoc/htsjdk/htsjdk/samtools/util/Interval.html).
 
 ![[Snoqualmie Mountain, Washington]](.github/img/cover.jpg)
 

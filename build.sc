@@ -47,7 +47,7 @@ object interval extends ScalaModule with PublishModule with ScoverageModule {
 
   /** POM publishing settings for this package. */
   def pomSettings: Target[PomSettings] = PomSettings(
-    description    = "A better genomic interval compatible with HTSJDK",
+    description    = "A better genomic interval that is compatible with HTSJDK",
     organization   = "io.cvbio.coord",
     url            = "https://github.com/clintval/interval",
     licenses       = Seq(License.MIT),
