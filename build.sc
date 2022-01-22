@@ -12,14 +12,6 @@ import java.util.jar.Attributes.Name.{IMPLEMENTATION_VERSION => ImplementationVe
 
 private val packageVersion = "0.0.1"
 
-private val htsjdkExcludes = Seq(
-  "com.google.cloud.genomics",
-  "com.google.guava",
-  "gov.nih.nlm.ncbi",
-  "org.apache.ant",
-  "org.testng",
-)
-
 /** A base trait for all test targets. */
 trait ScalaTest extends TestModule {
   override def ivyDeps = Agg(ivy"org.scalatest::scalatest::3.1.3".excludeOrg(organizations = "org.junit"))
@@ -35,7 +27,16 @@ object interval extends ScalaModule with PublishModule with ScoverageModule {
   def publishVersion   = T { packageVersion }
 
   /** The dependencies for this module. */
-  override def ivyDeps = Agg(ivy"com.github.samtools:htsjdk:2.23.0".excludeOrg(htsjdkExcludes: _*))
+  override def ivyDeps = Agg(
+    ivy"com.github.samtools:htsjdk:2.24.1".excludeOrg(
+      "commons-logging",
+      "gov.nih.nlm.ncbi",
+      "org.apache.commons",
+      "org.xerial.snappy",
+      "org.sharegov",
+      "org.tukaani"
+    )
+  )
 
   /** All the repositories we need to search for dependency packages. */
   override def repositoriesTask: Task[Seq[Repository]] = {
