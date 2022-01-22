@@ -9,7 +9,7 @@ A better genomic interval compatible with HTSJDK.
 ![[Snoqualmie Mountain, Washington]](.github/img/cover.jpg)
 
 ```scala
-val interval = Interval(contig = "chr1", start = 1, end = 2, name = "MyInterval")
+val interval = Interval("chr1", start = 1, end = 2, name = "MyInterval")
 interval.sameCoordinates(interval) shouldBe true
 interval.asHtsJdk.getContig shouldBe "chr1"
 ```
