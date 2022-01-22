@@ -10,14 +10,14 @@ private[coord] trait IntervalIntermediate extends HtsJdkInterval
 
 /** A better version of HTSJDK's interval class with the upstream API mixed in, but magically hidden. */
 sealed trait Interval extends Stranded { this: IntervalIntermediate =>
-  def contig: String = this.getContig
-  def start: Int = this.getStart
-  def end: Int = this.getEnd
-  def positiveStrand: Boolean = this.isPositiveStrand
-  def name: String = this.getName
+  val contig: String = this.getContig
+  val start: Int = this.getStart
+  val end: Int = this.getEnd
+  val positiveStrand: Boolean = this.isPositiveStrand
+  val name: String = this.getName
 
   /** The length of this interval. */
-  override def length: Int = end - start + 1
+  override lazy val length: Int = end - start + 1
 
   /** Cast this interval to it's HTSJDK counterpart for use in older APIs. */
   def asHtsJdk: HtsJdkInterval = this.asInstanceOf[HtsJdkInterval]
