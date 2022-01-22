@@ -86,6 +86,7 @@ class IntervalTest extends AnyFlatSpec with Matchers {
     val interval = Interval(Chr1, 2, 3, positiveStrand = false, "NotMissing")
     interval.canEqual(interval) shouldBe true
     interval should not be Interval(Chr1, 5, 5, positiveStrand = false, "NotMissing")
+    interval.equals(Interval(Chr1, 5, 5, positiveStrand = false, "NotMissing")) shouldBe false
   }
 
   it should "have the same hash code as another interval with the same fields" in {
