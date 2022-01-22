@@ -7,7 +7,6 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.convertToAnyMustWrapper
 import org.scalatest.matchers.should.Matchers
 
-
 /** Unit tests for [[Interval]]. */
 class IntervalTest extends AnyFlatSpec with Matchers {
 
