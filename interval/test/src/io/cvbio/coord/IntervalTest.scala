@@ -19,6 +19,9 @@ class IntervalTest extends AnyFlatSpec with Matchers {
 
   "Interval" should "have sensible defaults set" in {
     val interval = Interval(Chr1, 2, 3)
+    interval.contig shouldBe Chr1
+    interval.start shouldBe 2
+    interval.end shouldBe 3
     interval.positiveStrand shouldBe true
     interval.name shouldBe MissingName
   }
@@ -73,6 +76,10 @@ class IntervalTest extends AnyFlatSpec with Matchers {
     val interval = Interval(Chr1, 2, 3, positiveStrand = false, "NotMissing")
     interval.canEqual(interval) shouldBe true
     interval shouldBe interval
+  }
+
+  it should "not think it could be equal to an object that is not an interval" in {
+    Interval(Chr1, 2, 3).canEqual(1) shouldBe false
   }
 
   it should "not be equals to another interval with the different fields" in {
